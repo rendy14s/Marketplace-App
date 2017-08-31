@@ -1,0 +1,138 @@
+<!--
+  Generated template for the OrderBarang page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>{{'Goods Order'}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card>
+    <img src="{{ loopback + defaultPhoto}}" />
+  </ion-card>
+
+  <ion-list inset>
+      <ion-item>
+        <ion-label>{{'Name of Seller' | translate}}</ion-label>
+        <ion-input type="text" [(ngModel)]="nama" disabled text-right></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>{{'Name of Goods' | translate}}</ion-label>
+        <ion-input type="text" [(ngModel)]="namaBarang" disabled text-right></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>{{'Types of Goods'}}</ion-label>
+        <ion-input type="text" [(ngModel)]="jenisSayuran" disabled text-right></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>{{'Stock of Goods' | translate}}</ion-label>
+        <ion-input type="text" [(ngModel)]="stok" disabled text-right></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>{{'Price Goods /Ons' | translate}}</ion-label>
+        <ion-input type="text" [(ngModel)]="harga" disabled text-right></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>{{'Describe of Goods' | translate}}</ion-label>
+        <ion-textarea [(ngModel)]="deskripsi" disabled text-right></ion-textarea>
+      </ion-item>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 text-center>
+          <ion-label>{{'Formulir Order' | translate}}</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item>
+      <ion-label>{{'Total of Weight Goods' | translate}}
+        <ion-badge color="danger">{{ qty }} (Ons)</ion-badge>
+      </ion-label>
+      <ion-range min="0" max="300" [(ngModel)]="slider" (ionChange)="qtyOrder()" snaps="true"></ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{'Address of Customer'}}</ion-label>
+      <ion-textarea placeholder="type your address here" [(ngModel)]="cust.alamat" required></ion-textarea>
+    </ion-item>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 text-center>
+          <ion-label>{{'Payment Method' | translate}}</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item *ngIf="!cust.wallet && !cust.bank">
+      <ion-label>{{'COD' | translate}}</ion-label>
+      <ion-toggle [(ngModel)]="cust.cod" (change)="cust.cod != cust.cod"></ion-toggle>
+    </ion-item>
+
+    <ion-item *ngIf="!cust.cod && !cust.bank">
+      <ion-label>{{'My Wallet' | translate}}</ion-label>
+      <ion-toggle [(ngModel)]="cust.wallet" (change)="cust.wallet != cust.wallet"></ion-toggle>
+    </ion-item>
+
+    <ion-item *ngIf="!cust.cod && !cust.wallet">
+      <ion-label>{{'Transfer Bank' | translate}}</ion-label>
+      <ion-toggle [(ngModel)]="cust.bank" (change)="cust.bank != cust.bank"></ion-toggle>
+    </ion-item>
+
+    <ion-item [hidden]="!cust.wallet && !cust.cod && !cust.bank">
+      <ion-icon name="ios-calculator-outline" item-start></ion-icon>
+      <ion-label>{{'Total Price'}} : </ion-label>
+      <ion-textarea [(ngModel)]="Tot" [disabled]="true" text-right></ion-textarea>
+      <!-- <ion-badge color="danger" item-end>Rp. {{Tot}}</ion-badge> -->
+    </ion-item>
+
+    <ion-item [hidden]="!cust.wallet">
+      <ion-icon name="ios-cash-outline" item-start></ion-icon>
+      <ion-label>{{'Saldo' | translate}} : </ion-label>
+      <ion-badge item-end>Rp. {{cash}}</ion-badge>
+    </ion-item>
+
+    <ion-item [hidden]="!cust.bank && !cust.cod">
+      <ion-icon name="ios-cash-outline" item-start></ion-icon>
+      <ion-label>{{'Nominal' | translate}} : </ion-label>
+      <ion-input type="number" placeholder="fill here.." [(ngModel)]="cust.nominal" text-right></ion-input>
+      <!-- <ion-textarea placeholder="fill here.." [(ngModel)]="cust.nominal" text-right></ion-textarea> -->
+    </ion-item>
+
+    <ion-item [hidden]="!cust.bank">
+      <ion-label>{{'Number Bank of Seller' | translate}}: </ion-label>
+      <ion-input type="text" [(ngModel)]="numberBank" disabled text-right></ion-input>
+    </ion-item>
+
+    <ion-item text-center [hidden]="!cust.bank">
+      <button ion-button large icon-left (click)="shoot()">
+        <ion-icon name="ios-camera-outline"></ion-icon>
+          {{'Take Picture' | translate}}
+      </button>
+
+      <div text-center [hidden]="!cust.bank">
+        <img [ngStyle]="{'background-image': 'url(' + photo + ')'}" class="foto-div">
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full color="danger" (click)="order()">{{'ADD TO CART' | translate}}</button>
+  </ion-toolbar>
+</ion-footer>

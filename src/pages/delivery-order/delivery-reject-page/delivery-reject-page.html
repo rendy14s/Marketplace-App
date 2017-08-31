@@ -1,0 +1,47 @@
+<!--
+  Generated template for the DeliveryRejectPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>{{'Delivery Reject Order' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-list-header>
+      {{'Rejected Order' | translate}}
+    </ion-list-header>
+    <ion-item-sliding *ngFor="let reject of rejected">
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="{{ loopBack + reject.photoBarang}}">
+        </ion-avatar>
+        <h4>{{'Name of Customer' | translate}}: {{reject.namaLengkap}} </h4>
+        <p>{{'Name of Goods' | translate}} : {{reject.namaBarang}}</p>
+        <p>{{'Amount / Qty Goods' | translate}} : {{reject.jumlahBarang}} ( Kg / Ons / Ikat / Biji )</p>
+        <p>{{'Total Price' | translate}} : {{reject.totalHarga}}</p>
+        <p>{{'Address' | translate}} : {{reject.alamat}}</p>
+        <p>{{'Method Payment' | translate}} : {{reject.payment}}</p>
+        <p>{{'Total Payment' | translate}} : {{reject.paymentTot}}</p>
+        <p style="color: crimson">Status : {{reject.status}}</p>
+      </ion-item>
+      <ion-item-options side="left">
+      <button ion-button color="primary" (click)="detail(reject)">
+        <ion-icon name="ios-eye-outline"></ion-icon>
+        {{'Detail' | translate}}
+      </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    <div *ngIf="lengthRej == 0">
+      <p text-center>{{'Data Empty' | translate}}</p>
+    </div>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,50 @@
+<!--
+  Generated template for the MyWallet page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'My Wallet' | translate}}</ion-title>
+    <ion-buttons right color="primary">
+      <button ion-button (click)="listWallet()"><ion-icon name="calculator" style="font-size:1.8em;"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <p style="text-align: center; size: 2em;">{{'My Saldo' | translate}}</p>
+  <h2 style="text-align: center;">Rp. {{cash}}</h2>
+
+  <ion-card>
+
+    <ion-card-header>
+      {{'Refill My Wallet' | translate}}
+    </ion-card-header>
+    <h2 style="padding: 5px 30px;">{{'How To refill my wallet ?' | translate}}</h2>
+    <p style="padding: 3px 30px; font-weight:2px;">- {{'Upload picture of transaksi transfer bank.' | translate}}</p>
+    <p style="padding: 3px 30px; font-weight:2px;">- {{'Fill the Account Number is BCA 7111-846-27, A/n : Aji Tirta Sundawa' | translate}}</p>
+    <p style="padding: 3px 30px; font-weight:2px;">- {{'Fill the nominal top up corresponding with your transfer bank. (ex: 100000).' | translate}}</p>
+    <p style="padding: 3px 30px; font-weight:2px;">- {{'Submit' | translate }} "TOP UP".</p>
+    <p style="padding: 3px 30px; font-weight:2px;">- {{'Enjoy! Your wallet will automatic refill.' | translate}}</p>
+
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full color="danger" (click)="shoot()">
+       <ion-icon name="ios-camera-outline">
+        {{'Photo of Transaction Bank' | translate}}
+        </ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-footer>

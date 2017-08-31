@@ -1,0 +1,34 @@
+<!--
+  Generated template for the WalletAdminPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'Wallet Top Up' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list inset>
+    <ion-item *ngFor="let datas of dataTopup" (click)="action(datas)">
+      <ion-avatar item-start>
+        <img src="{{ loopBack + datas.photo }}">
+      </ion-avatar>
+      <h2>{{datas.namaCustomer}}</h2>
+      <p>{{datas.nominal}}</p>
+      <p>{{datas.tempStatus}}</p>
+    </ion-item>
+
+    <div *ngIf="dataTopupLength == 0">
+      <p text-center>{{'Data Empty, you are have been confirm all data' | translate}}</p>
+    </div>
+  </ion-list>
+</ion-content>

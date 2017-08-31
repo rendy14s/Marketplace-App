@@ -1,0 +1,32 @@
+<!--
+  Generated template for the AdminListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'Seller List' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list inset>
+    
+      <ion-item *ngFor="let datas of data" (click)="action(datas)">
+        <h2>{{datas.namaLengkap}}</h2>
+        <p>{{datas.hakUser}}</p>
+      </ion-item>
+
+    <div *ngIf="lengthData == 0">
+      <p text-center>{{'No new seller registration' | translate}}</p>
+    </div>
+
+  </ion-list>
+</ion-content>

@@ -1,0 +1,30 @@
+<!--
+  Generated template for the RatingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-content padding class="body">
+
+  <ion-grid no-padding no-margin class="ion-rating-container">
+    <ion-row>
+      <ion-col text-center *ngFor="let star of stars; let i = index" tappable (click)="starClicked(i)">
+        <ion-icon class="start" [name]="star"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label text-center>Rate : {{value}}</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button block color="danger" (click)="rate()">Rate!</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

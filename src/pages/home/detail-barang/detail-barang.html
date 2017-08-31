@@ -1,0 +1,55 @@
+<!--
+  Generated template for the DetailBarang page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>{{'Detail of Goods' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card>
+    <img src="{{ loopback + defaultPhoto}}" />
+  </ion-card>
+
+  <ion-list inset>
+     <ion-item>
+      <ion-label>{{'Name of Seller' | translate}}</ion-label>
+      <ion-input type="text" [(ngModel)]="nama" disabled text-right></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{'Name of Goods' | translate}}</ion-label>
+      <ion-input type="text" [(ngModel)]="namaBarang" disabled text-right></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{'Types of Goods' | translate}}</ion-label>
+      <ion-input type="text" [(ngModel)]="jenisSayuran" disabled text-right></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{'Price of Goods' | translate}}</ion-label>
+      <ion-input type="text" [(ngModel)]="harga" disabled text-right></ion-input>
+    </ion-item>
+
+     <ion-item>
+      <ion-label>{{'Describe of Goods' | translate}}</ion-label><br>
+      <ion-textarea [(ngModel)]="deskripsi" disabled text-right></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full color="danger" (click)="order()">{{'ORDER' | translate}}</button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,23 +1,48 @@
+<!--
+  Generated template for the DeliveryOrder page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 <ion-header>
-  <ion-navbar>
+
+  <ion-navbar color="danger">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>{{'Your Cart' | translate}}</ion-title>
   </ion-navbar>
+
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+
+<ion-content padding>
+
+<ion-list>
+  <ion-item>
+    <h2>{{'Waiting Order' | translate}}</h2>
+    <button ion-button clear item-end (click)="waiting()" color="danger">View</button>
+  </ion-item>
+</ion-list>
+
+<ion-list>
+  <ion-item>
+    <h2>{{'Proses Order' | translate}}</h2>
+    <button ion-button clear item-end (click)="proses()" color="danger">View</button>
+  </ion-item>
+</ion-list>
+
+<ion-list>
+  <ion-item>
+    <h2>{{'Rejected Order' | translate}}</h2>
+    <button ion-button clear item-end (click)="reject()" color="danger">View</button>
+  </ion-item>
+</ion-list>
+
+<ion-list>
+  <ion-item>
+    <h2>{{'Approved Order' | translate}}</h2>
+    <button ion-button clear item-end (click)="approve()" color="danger">View</button>
+  </ion-item>
+</ion-list>
 </ion-content>

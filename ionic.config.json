@@ -1,5 +1,8 @@
 {
-  "name": "sidemenu",
+  "name": "aji-app",
   "app_id": "",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }

@@ -1,0 +1,53 @@
+<!--
+  Generated template for the EditPostingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'Edit Selling' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card>
+    <img src="{{ loopBack + photo}}" (click)="shot()"/>
+  </ion-card>
+
+  <ion-list inset>
+     <ion-item>
+      <ion-label>{{'Name of Goods' | translate}}</ion-label>
+      <ion-input type="text" [(ngModel)]="editData.namaBarang" text-right></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{'Price of Goods | translate'}}</ion-label>
+      <ion-input type="text" [(ngModel)]="editData.harga" text-right></ion-input>
+    </ion-item>
+
+     <ion-item>
+      <ion-label>{{'Stock of Goods' | translate}}</ion-label>
+      <ion-input type="number" [(ngModel)]="editData.stock" text-right></ion-input>
+    </ion-item>
+
+     <ion-item>
+      <ion-label>{{'Describe of Goods' | translate}}</ion-label>
+      <ion-input type="text" [(ngModel)]="editData.deskripsi" text-right></ion-input>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full color="danger" (click)="save()">{{'Save' | translate}}</button>
+  </ion-toolbar>
+</ion-footer>

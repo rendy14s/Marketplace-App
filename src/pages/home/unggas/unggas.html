@@ -1,0 +1,33 @@
+<!--
+  Generated template for the UnggasPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'Fowl' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let unggass of unggas" (click)="detail(unggass)">
+      <ion-avatar item-start>
+         <img src="{{ loopBack + unggass.photo }}">
+      </ion-avatar>
+      <h2>{{unggass.namaBarang}}</h2>
+      <p>{{'Seller'}} : {{unggass.namaLengkap}}</p>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="unggasLength == 0">
+    <p text-center>{{'Sorry, Data Fowl is Empty' | translate}}</p>
+  </div>
+</ion-content>

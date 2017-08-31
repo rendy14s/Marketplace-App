@@ -1,0 +1,40 @@
+<ion-menu [content]="content" class="sidemenu" swipeEnabled=false>
+
+  <ion-content>
+    <ion-list>
+      <ion-thumbnail id="bg">
+        <div class="foto-div" [ngStyle]="{'background-image': 'url(' + photo + ')'}" menuClose></div>
+
+        <p class="title-menu">{{userName}}</p>
+        <p class="title-menu">{{Roll}}</p>
+      </ion-thumbnail>
+
+      <ion-list-header no-lines class="header-title">
+        <br><br>{{'Menu' | translate}}
+      </ion-list-header>
+
+        <button detail-none menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" [hidden]="!p.show" style="background-color: #009688;" menuClose>
+          <ion-icon name="{{p.icons}}" item-left [hidden]="!p.show" style="color:white;"></ion-icon>
+          <ion-label [hidden]="!p.show" style="color:white;">{{ p.title | translate }}</ion-label>
+       </button>
+
+        <ion-list-header no-lines class="header-title">
+          <br><br>{{'Setting' | translate}}
+        </ion-list-header>
+
+        <ion-item class="list-menu" (click)="language()" menuClose>
+          <ion-icon class="icon" name="md-settings" item-left></ion-icon>
+          <ion-label class="menu-title">{{'Change Language' | translate}}</ion-label>
+        </ion-item>
+
+        <ion-item class="list-menu" (click)="gotoLogout()" menuClose>
+          <ion-icon class="icon" name="log-out" item-left></ion-icon>
+          <ion-label class="menu-title">{{'Logout' | translate}}</ion-label>
+        </ion-item>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav id="nav" [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
